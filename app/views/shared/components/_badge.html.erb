@@ -1,0 +1,26 @@
+<%= raw "<div class=dropdown>" if dropdown_actions %>
+<div class="badge badge-<%= style.to_s.gsub("_", "-") %> <%= "clickable" if modal_id or onclick %> <%= "dropdown-toggle" if dropdown_actions %>" <%= "data-bs-toggle=modal data-bs-target=##{modal_id}" if modal_id %> <%= "data-bs-toggle=dropdown aria-expanded=false" if dropdown_actions %> <%= "id=#{id}" if id %> onclick="<%= raw onclick if onclick %>">
+  <% if icon %>
+    <i class="fa fa-fw fa-<%= icon.to_s.gsub("_", "-") %>"></i>
+  <% end %>
+  <%= text %>
+  <% if modal_id %>
+    <i class="fa fa-angle-right"></i>
+  <% end %>
+</div>
+<% if dropdown_actions %>
+  <ul class="dropdown-menu">
+    <% dropdown_actions.each do |action| %>
+      <%
+        raise "missing paramter : dropdown action name" unless action[:name]
+        raise "missing paramter : dropdown action name" unless action[:path]
+        action[:method] ||= :put
+        action[:confirm] ||= false
+      %>
+      <li>
+        <%= link_to action[:name], action[:path], class: "dropdown-item", method: action[:method], data: {confirm: action[:confirm]} %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= raw "</div>" if dropdown_actions %>

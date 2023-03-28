@@ -1,0 +1,16 @@
+<% actions ||= [] %>
+
+<div class="card-title-container">
+  <h3 class="card-title"><%= yield.empty? ? title : yield %></h3>
+  <% if actions %>
+    <div class="card-action-group">
+      <% actions.each do |action| %>
+        <%
+          raise "missing parameter : action name" unless action[:name]
+          raise "missing parameter : action undefined" unless action[:path] or action[:modal_id] or action[:dropdown_actions]
+        %>
+        <%= r_button text: action[:name], style: action[:style], disabled: action[:disabled], path: action[:path], method: action[:method], confirm: action[:confirm], external: action[:external], modal_id: action[:modal_id], dropdown_actions: action[:dropdown_actions] %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

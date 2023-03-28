@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-8">
+    <%= r_card do %>
+      <%= r_card_title actions: [{name: "Edit", path: edit_store_path(@store)}] do %>
+      Info
+      <% end %>
+      <%= r_card_content do %>
+        <%= r_name_value_table do %>
+          <%= r_name_value name: 'ID', value: @store.id %>
+          <%= r_name_value name: 'Status', value: @store.status %>
+          <%= r_name_value name: 'Name EN', value: @store.name_eng %>
+          <%= r_name_value name: 'Name JP', value: @store.name_jp %>
+          <%= r_name_value name: 'Pet Type', value: @store.pet_type %>
+          <%= r_name_value name: 'Pick-up Available', value: @store.pickup_available %>
+          <%= r_name_value name: 'Website Url', value: @store.website_url %>
+          <%= r_name_value name: 'Description', value: @store.description %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
