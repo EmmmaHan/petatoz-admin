@@ -10,8 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_26_144450) do
-  create_table "users", id: { type: :integer, unsigned: true }, charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_154450) do
+  create_table "pet_breeds", charset: "utf8mb4", force: :cascade do |t|
+    t.string "pet_type", limit: 100, null: false
+    t.string "breed_name", limit: 200, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pets", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name", limit: 100, default: ""
+    t.string "pet_type", limit: 100, default: "dog", null: false
+    t.string "breed", limit: 200, default: "undefined", null: false
+    t.string "breed_other", limit: 100
+    t.string "gender", limit: 100, default: "undefined", null: false
+    t.decimal "weight_kg", precision: 10, default: "0"
+    t.string "neutered", default: "unknown", null: false
+    t.datetime "birthday"
+    t.integer "age"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
+  create_table "services", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "name", limit: 200, default: ""
+    t.string "service_type", limit: 200, null: false
+    t.text "description"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_services_on_name"
+    t.index ["service_type"], name: "index_services_on_service_type"
+    t.index ["store_id"], name: "index_services_on_store_id"
+  end
+
+  create_table "stores", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name_eng", limit: 200, default: ""
+    t.string "name_jp", limit: 200, default: ""
+    t.text "description"
+    t.string "pet_type", limit: 50, null: false
+    t.boolean "pickup_available", default: false, null: false
+    t.string "website_url"
+    t.string "status", limit: 50, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name_eng"], name: "index_stores_on_name_eng"
+    t.index ["name_jp"], name: "index_stores_on_name_jp"
+    t.index ["pickup_available"], name: "index_stores_on_pickup_available"
+    t.index ["status"], name: "index_stores_on_status"
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

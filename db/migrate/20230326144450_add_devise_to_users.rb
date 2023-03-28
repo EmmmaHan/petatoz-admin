@@ -2,6 +2,10 @@
 
 class AddDeviseToUsers < ActiveRecord::Migration[7.0]
   def self.up
+    create_table :users do |t|
+      t.timestamps
+    end
+
     change_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -46,6 +50,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
   def self.down
     # By default, we don't want to make any assumption about how to roll back a migration when your
     # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration
+    drop_table :users
   end
 end

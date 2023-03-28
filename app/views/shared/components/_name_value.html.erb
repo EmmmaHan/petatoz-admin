@@ -1,0 +1,12 @@
+<tr>
+  <td class="name">
+    <%= name %>
+  </td>
+  <td class="value">
+    <% if yield.blank? %>
+      <%= raw ((defined?(value) && value.present?) ? value : "-") %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </td>
+</tr>
