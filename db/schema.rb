@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_26_154450) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_30_144706) do
   create_table "pet_breeds", charset: "utf8mb4", force: :cascade do |t|
     t.string "pet_type", limit: 100, null: false
     t.string "breed_name", limit: 200, null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_154450) do
 
   create_table "stores", charset: "utf8mb4", force: :cascade do |t|
     t.string "name_eng", limit: 200, default: ""
+    t.string "name_kr", limit: 100
     t.string "name_jp", limit: 200, default: ""
     t.text "description"
     t.string "pet_type", limit: 50, null: false
