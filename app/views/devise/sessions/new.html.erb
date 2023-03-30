@@ -1,0 +1,19 @@
+<%= render "devise/shared/links" %>
+
+<%= r_card stretch_height: false do %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<%= r_card_content do %>
+			<%= r_form_of f, type: :email, field: :email, label: "이메일", required: true, autofocus: true %>
+			<%= r_form_of f, type: :password, field: :password, label: "비밀번호", required: true %>
+			<% if devise_mapping.rememberable? %>
+				<%= r_form_of f, type: :checkbox, field: :remember_me, options: {remember_me: "로그인 유지"} %>
+			<% end %>
+		<% end %>
+		<%= r_card_footer do %>
+			<%= r_submit text: "로그인" %>
+		<% end %>
+		<%= r_card_footer do %>
+			<%= render "devise/shared/links" %>
+		<% end %>
+	<% end %>
+<% end %>
