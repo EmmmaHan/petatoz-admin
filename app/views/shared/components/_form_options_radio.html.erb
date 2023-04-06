@@ -1,0 +1,12 @@
+<div class="d-flex <%= "flex-column" if vertical %>">
+  <% options.each.with_index do |(option_key, option_label), index| %>
+      <div class="form-check <%= index != 0 ? (vertical ? "mt-1" : "ms-2") : "" %>">
+        <% if form %>
+            <%= form.radio_button field, option_key, id: "#{field}_#{option_key}", class: "form-check-input", required: required %>
+        <% else %>
+            <%= radio_button_tag field, option_key, (value == option_key), id: "#{field.to_s.gsub("[", "_").gsub("]", "_").gsub("__", "_")}_#{option_key}".gsub("__", "_"), class: "form-check-input", required: required %>
+        <% end %>
+        <%= label_tag "#{field}_#{option_key}", option_label, class: "form-check-label" %>
+      </div>
+  <% end %>
+</div>

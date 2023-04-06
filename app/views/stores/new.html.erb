@@ -1,0 +1,24 @@
+<div class="row">
+	<%= r_card do %>
+		<%= form_tag stores_path, method: :post do |f| %>
+			<%= r_card_content do %>
+				<div class="row">
+					<div class="col-6">
+						<%= r_form type: :text, label: "Name ENG", field: :name_eng, required: true %>
+						<%= r_form type: :text, label: "Name KR", field: :name_kr, required: true %>
+						<%= r_form type: :text, label: "Name JP", field: :name_jp%>
+						<%= r_form type: :select, label: "Pick-up", field: :pickup_available, options: {"True": 'True', "False": "False"} %>
+						<%= r_form type: :select, label: "Pet Type", field: :pet_type, options: Store.pet_types %>
+					</div>
+					<div class="col-6">
+						<%= r_form type: :text_area, label: "Website", field: :website_url %>
+						<%= r_form type: :text_area, label: "Description", field: :description %>
+					</div>
+				</div>
+			<% end %>
+			<%= r_card_footer do %>
+				<%= r_submit text: 'Create' %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

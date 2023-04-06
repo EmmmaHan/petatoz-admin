@@ -2,11 +2,11 @@ class Store < ApplicationRecord
   include AASM
 
   has_many :services
-  validates_presence_of :name_eng, :name_jp
+  validates_presence_of :name_eng, :name_kr
 
   enum status: {
     pending: 'pending',
-    activated: 'activated',
+    active: 'active',
     deactivated: 'deactivated',
   }
 

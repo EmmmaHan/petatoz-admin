@@ -10,14 +10,19 @@ class StoresController < ApplicationController
   end
 
   def new
-
+    @title = 'New Store'
   end
 
   def create
-
+    @store = Store.create!(store_params)
+    redirect_to stores_path
   end
 
   def update
 
+  end
+
+  def store_params
+    params.permit(:name_eng, :name_kr, :name_jp, :website, :description, :pickup_available, :pet_type)
   end
 end

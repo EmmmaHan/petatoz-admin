@@ -1,0 +1,11 @@
+<div class="form-set form-set-<%= field.to_s.gsub("[]", "") %> <%= "mb-0" if type == :hidden %>" id="form-set-<%= field.to_s.gsub("[]", "") %>">
+  <% if label %>
+      <%= label_tag field, class: "form-label" do %>
+          <%= label %>
+          <% if required %>
+              <i class='fa fa-asterisk ms-1' style='font-size: 80%;'></i>
+          <% end %>
+      <% end %>
+  <% end %>
+  <%= yield %>
+</div>

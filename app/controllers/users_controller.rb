@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @title = "Users"
   end
 
+
   def edit
 
   end

@@ -1,24 +1,24 @@
-<div class="card stretch-height">
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="table-light">
-          <tr>
-            <th>id</th>
-            <th>email</th>
-            <th>created at</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= user.id %></td>
-            <td><%= user.email %></td>
-            <td><%= user.created_at %></td>
-          </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-</div>
+<%= r_card do %>
+  <%= r_card_title actions: [{name: "New", path: new_user_path}] do %>
+  <% end %>
+  <%= r_card_content do %>
+    <%= r_table do %>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Created</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    <% end %>
+  <% end %>
+<% end %>
