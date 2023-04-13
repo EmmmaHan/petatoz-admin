@@ -38,7 +38,7 @@ default: &default
 development:
   <<: *default
   database: petatoz_development
-  user: root
+  username: root
   password: ffbb
 
 staging:
@@ -49,5 +49,3 @@ production: &production
   <<: *default
   pool: 32
   database: petatoz_production
-  user: root
-  password: Lingo0307!
