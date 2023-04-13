@@ -282,6 +282,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  ffi (~> 1.9, >= 1.9.10)
   importmap-rails
   jbuilder
   mysql2
@@ -291,6 +292,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
   sass-rails (>= 6)
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
