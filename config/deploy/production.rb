@@ -1,4 +1,4 @@
-set :server, :petatoz-admin
+set :server, 'petatoz-admin'
 set :rails_env, :production
 set :branch, 'main'
 set :stage, :production

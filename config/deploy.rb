@@ -6,9 +6,10 @@ set :repo_url, "git@github.com:EmmmaHan/petatoz-admin.git"
 set :user, 'ubuntu'
 set :keep_releases, 3
 set :linked_files, %w[config/database.yml config/master.key]
+set :linked_dirs,  %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system]
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.7.2'
+set :rbenv_ruby, '3.1.2'
 
 set :puma_threads,    [4, 16]
 set :puma_workers,    1
