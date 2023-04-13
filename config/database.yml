@@ -38,6 +38,8 @@ default: &default
 development:
   <<: *default
   database: petatoz_development
+  username: root
+  password: ffbb
 
 staging:
   <<: *default

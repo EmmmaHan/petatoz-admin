@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  validates :age_xor_birthday
+  # validates :age_xor_birthday
   validates_numericality_of :weight_kg, less_than_or_equal_to: 100
 
   enum pet_type: {

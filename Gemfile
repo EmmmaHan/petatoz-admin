@@ -14,7 +14,7 @@ gem "sprockets-rails"
 
 gem 'mysql2'
 gem 'aasm'
-gem 'sass-rails'
+gem 'sass-rails', '>= 6'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -70,6 +70,13 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # capistrano deployment
+  gem 'capistrano', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma', require: false
 end
 
 group :test do
