@@ -282,7 +282,7 @@ DEPENDENCIES
   capybara
   debug
   devise
-  ffi (~> 1.9, >= 1.9.10)
+  ffi
   importmap-rails
   jbuilder
   mysql2
