@@ -292,7 +292,6 @@ DEPENDENCIES
   redis (~> 4.0)
   sass-rails (>= 6)
   sassc (~> 2.4)
-  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
