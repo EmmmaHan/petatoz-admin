@@ -9,7 +9,7 @@ set :puma_phased_restart, true
 
 set :linked_files, %w[config/database.yml config/master.key config/credentials/production.key]
 
-server '3.14.132.56',
+server '18.191.107.147',
        user: 'ubuntu',
        roles: [:web, :app, :db],
        primary: true,
